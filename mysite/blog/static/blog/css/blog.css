@@ -28,7 +28,15 @@ nav {
     display:inline-block;
 }  
 
-nav a { color: #4a2cc6; text-decoration: none; margin: 0 10px;
+nav a { 
+    color: #4a2cc6; text-decoration: none; margin: 0 10px;
+    display: inline-block; 
+    margin-top: 10px; 
+    padding: 5px 10px; 
+    background-color: #4ea022; 
+    color: #fff; 
+    text-decoration: none; 
+    border-radius: 3px;
 }
 
 nav a:hover { text-decoration: underline;}
