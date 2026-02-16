@@ -19,6 +19,7 @@
             <li><a href="{% url 'blog:post_search' %}">Search</a></li>
         </ul>
     </nav>
+    <div class="content">
     <main>
         {% block content %}
         {% endblock %}
@@ -45,10 +46,11 @@
             {% endfor %}
         </ul>
         {% endblock %}
-    </div>
+    </div> <!-- End of sidebar -->
+    </div> <!-- End of content -->
     <footer>
         <p>&copy; 2026 My Blog</p>
     </footer>
-    </div>
+    </div> <!-- End of container -->
 </body>
 </html>
