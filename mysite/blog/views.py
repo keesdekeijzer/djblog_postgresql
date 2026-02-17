@@ -51,7 +51,8 @@ def post_detail(request, year, month, day, post):
                                                       'comments': comments,
                                                         'new_comment': comment,
                                                           'comment_form': form,
-                                                            'similar_posts': similar_posts})
+                                                            'similar_posts': similar_posts,
+                                                            'picture_url': post.picture.url if post.picture else None})
 
 
 def post_search(request):

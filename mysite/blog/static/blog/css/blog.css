@@ -147,3 +147,14 @@ code {
     padding: 10px;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.post-image {
+    margin-top: 20px;
+    max-width: fit-content;
+    height: auto;
+}

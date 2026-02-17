@@ -24,6 +24,8 @@ class Post(models.Model):
     slug = models.SlugField(max_length=250, unique_for_date='publish')
     publish = models.DateTimeField(default=timezone.now)
     updated = models.DateTimeField(auto_now=True)
+    picture = models.ImageField(upload_to='blog/%Y/%m/%d/', blank=True)
+    
 
     objects = models.Manager()  # The default manager.
     published = PublishedManager()  # Our custom manager.

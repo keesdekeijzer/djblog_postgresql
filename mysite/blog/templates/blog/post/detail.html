@@ -7,6 +7,11 @@
     <article class="post">
         <h2>{{ post.title }}</h2>
         <p class="meta">Published on {{ post.publish }}</p>
+            {% if picture_url %}
+                <div class="post-image">
+                    <img src="{{ picture_url }}" alt="Image for {{ post.title }}">
+                </div>
+            {% endif %}
         <div class="post-body">
             {{ post.body|markdown }}
         </div>
