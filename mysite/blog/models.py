@@ -56,3 +56,11 @@ class Comment(models.Model):
     def __str__(self):
         return f'Comment by {self.name} on {self.post}'
     
+
+class QuoteOfTheDay(models.Model):
+    quote = models.TextField()
+    author = models.CharField(max_length=100)
+    picture = models.ImageField(upload_to='blog/quotes/%Y/%m/%d/', blank=True)
+
+    def __str__(self):
+        return f'"{self.quote}" - {self.author}'

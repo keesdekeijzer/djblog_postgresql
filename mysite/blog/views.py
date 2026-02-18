@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post, Comment
+from .models import Post, Comment, QuoteOfTheDay
 from .forms import CommentForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView, DetailView
@@ -67,4 +67,9 @@ def post_search(request):
             search_query = SearchQuery(query)
             results = Post.published.annotate(similarity=TrigramSimilarity('title', query)).filter(similarity__gt=0.1).order_by('-similarity')
     return render(request, 'blog/post/search.html', {'form': form, 'query': query, 'results': results})
+
+
+def quote_of_the_day(request):
+    quote = QuoteOfTheDay.objects.order_by('?').first()
+    return render(request, 'blog/quote_of_the_day.html', {'quote': quote})
 

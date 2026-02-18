@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, QuoteOfTheDay
 from .models import Comment
 
 @admin.register(Post)
@@ -19,4 +19,10 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'post', 'created', 'active')
     list_filter = ('active', 'created', 'updated')
     search_fields = ('name', 'email', 'body')
+
+
+@admin.register(QuoteOfTheDay)
+class QuoteOfTheDayAdmin(admin.ModelAdmin):
+    list_display = ('quote', 'author')
+    search_fields = ('quote', 'author')
 

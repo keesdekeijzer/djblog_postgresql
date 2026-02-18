@@ -45,6 +45,19 @@
                 <li>No posts available.</li>
             {% endfor %}
         </ul>
+        <h2>Quote of the Day</h2>
+        {% get_quote_of_the_day as quote %}
+        {% if quote %}
+            <blockquote>
+                "{{ quote.quote }}"<br>
+                <small>- {{ quote.author }}</small>
+            </blockquote>
+            {% if quote.picture %}
+                <img src="{{ quote.picture.url }}" alt="Quote of the Day" class="quote-image">
+            {% endif %}
+        {% else %}
+            <p>No quote available.</p>
+        {% endif %}
         {% endblock %}
     </div> <!-- End of sidebar -->
     </div> <!-- End of content -->
