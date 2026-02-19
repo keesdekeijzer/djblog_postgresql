@@ -1,3 +1,4 @@
+from time import strftime
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Comment, QuoteOfTheDay
 from .forms import CommentForm
@@ -7,6 +8,7 @@ from taggit.models import Tag
 from django.db.models import Count
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank, TrigramSimilarity
 from .forms import SearchForm
+import datetime
 
 class PostListView(ListView):
     queryset = Post.published.all()
@@ -69,7 +71,8 @@ def post_search(request):
     return render(request, 'blog/post/search.html', {'form': form, 'query': query, 'results': results})
 
 
-def quote_of_the_day(request):
-    quote = QuoteOfTheDay.objects.order_by('?').first()
-    return render(request, 'blog/quote_of_the_day.html', {'quote': quote})
+def quote_of_the_day():
+    x = str(datetime.datetime.now().strftime("%m%d"))
+    quote = QuoteOfTheDay.objects.filter(author=x)
+    return quote
 
